@@ -1,21 +1,21 @@
-const buttonFactory = (name) => {
-  let usable = true;
-  return { name, usable };
-};
-
+//Missing Functions
+//
 //GameBoard Module
 const gameboard = (() => {
   //Create an Array that represents the gameboard
   let board = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"];
-
+  let turns = 0;
   //Fetch gameboard button elements
   let btns = Array.from(document.getElementsByClassName("field"));
 
   //Method for printing the token in the chosen field (button)
   btns.forEach((btn) => {
     btn.onclick = function (event) {
-      btn.innerHTML = playerModule.player2.token;
+      btn.innerHTML = playerModule.player1.turn === true ? "X" : "O";
       btn.disabled = true;
+      playerModule.player1.turn = !playerModule.player1.turn;
+      turns++;
+      console.log(turns);
     };
   });
 
@@ -40,8 +40,8 @@ const playerModule = (() => {
   let btns = Array.from(document.getElementsByClassName("choosePlayer"));
 
   //Player Factory Function
-  const playerFactory = (_player, token, _turn, status) => {
-    return { token, status };
+  const playerFactory = (_player, token, turn, status) => {
+    return { token, turn };
   };
 
   const player1 = playerFactory("player1", "X", true, true);
@@ -73,4 +73,6 @@ const playerModule = (() => {
 
 //GameFlow Module:
 
-// const gameFlow = ()();
+const gameFlow = (() => {
+  let turns = 0;
+})();
