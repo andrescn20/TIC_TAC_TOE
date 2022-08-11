@@ -1,28 +1,39 @@
 body {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .boardContainer {
   display: grid;
   grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+  width: 40vw;
+  height: 40vw;
+  margin: 5vh;
 }
 
+.field {
+  background-color: transparent;
+}
 .rowA {
   grid-row: 1;
+  border-top: none;
 }
 .rowB {
   grid-row: 2;
 }
 .rowC {
   grid-row: 3;
+  border-bottom: none;
 }
 .column1 {
   grid-column: 1;
+  border-left: none;
 }
 .column2 {
   grid-column: 2;
 }
 .column3 {
   grid-column: 3;
+  border-right: none;
 }
