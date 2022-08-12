@@ -92,8 +92,8 @@ const gameFLow = (() => {
   restartBtn.onclick = function (event) {
     //Reset Turn counter and active player for
     turns = 1;
-    playerModule.player1.turn = true;
-    playerModule.player2.turn = false;
+    playerModule.player1.active = true;
+    playerModule.player2.active = false;
     winnerParagraph.innerHTML = ""; //Cleans winner announcement paragraph
 
     //Clean Board
@@ -102,9 +102,9 @@ const gameFLow = (() => {
       btn.disabled = false;
     });
     //Re-enable Player Token Buttons
-    playerModule.btns.forEach((btn) => {
-      btn.disabled = false;
-    });
+    // playerModule.btns.forEach((btn) => {
+    //   btn.disabled = false;
+    // });
   };
 })();
 
@@ -146,5 +146,3 @@ const playerModule = (() => {
 
   return { btns, player1, player2 };
 })();
-
-//GameFlow Module:
